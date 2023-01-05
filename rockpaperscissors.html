@@ -3,13 +3,76 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Function scope example</title>
+    <title>Rock-paper-scissors</title>
   </head>
 <body>
- 
+    
+  <!-- This is the game called rock, paper and scissors.
+  The rules are to be made against which rock, paper, scissors selection is madee.
+  It will be played against the computer. 
+  The computer would make a random selection, then the player his selection. 
+  The selections are rated against the set rules.
+  And the winner is selected. 
+  The results are to be recoreded on a leadership board for five times.
+  An overall winner is selected afterall the fifth round of the game. -->
+  
+  <h1>The Game:<h2>Rock-paper-scissors</h2></h1>
+  <p>Play your favorite game, against the computer.</p>
+  <p>Build on your individual wins, fill up your records and be the ultimate winner after five games.</p>
+  
   <script>
-  console.log("Hello World")
 
-  </script>
+    // Define the rules that defines the game: Rock beats scissors, scissors beat paper and paper beats rock.
+  
+    function getComputerChoice () {
+      let cpuSelect = Math.ceil(Math.random() * 3);
+    
+    if (cpuSelect === 3) {
+      return cpuSelect = "Rock";
+    } else if (cpuSelect === 2) {
+      return cpuSelect = "Paper";
+    } else {
+      return cpuSelect = "Scissors";
+    }    
+    }
+     
+    let playerSelect = prompt("Player please enter your selection: Rock, Paper or Scissors.", "Rock or Paper or Scissors");
+
+
+    function playRound (cpuSelect, playerSelect) {
+      if (cpuSelect == "Rock" && playerSelect == "Scissors") {
+        return ("You lose!! 'Rock beats Scissors'");
+      } else if (cpuSelect == "Paper" && playerSelect == "Scissors") {
+        return ("You win!! 'Scissors beats Paper'");
+      } else if (cpuSelect == "Scissors" && playerSelect == "Paper") {
+        return ("You lose!! 'Scissors beats Paper'");
+      } else if (cpuSelect == "Rock" && playerSelect == "Paper") {
+        return ("You win!! 'Paper beats Rock'");
+      } else if (cpuSelect == "Paper" && playerSelect == "Rock") {
+        return ("You lose!! 'Paper beats Rock'")
+      } else if (cpuSelect == "Scissors" && playerSelect == "Rock") {
+        return ("You win!! 'Rock beats Scissors'")
+      } else if (cpuSelect == playerSelect) {
+        return (`Nah. Try again ${cpuSelect} is same as ${playerSelect}`)
+      }
+      
+    }
+    
+    const cpuSelect = getComputerChoice();
+    console.log(playRound(cpuSelect, playerSelect));
+
+
+ 
+    // Get the computer's selection randomly.
+    // The player makes a selection amongst rock, paper or scissors.
+    // Both selections are taken and compared against each other.
+    // The winner is recorded
+    // The game would have five rounds
+    // The player with the highest tally wins overall. 
+
+
+
+
+   </script>
 </body>
 </html>
