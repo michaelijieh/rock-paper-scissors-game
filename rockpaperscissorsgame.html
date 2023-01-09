@@ -40,23 +40,33 @@
     }
 
      // Get a selection from the player
+     //  Ensure only the correct responses are permitted
      function userSelect () { 
-      return playerSelect = prompt("Player please enter your selection:", "Rock or Paper or Scissors")};
+      playerSelect = prompt("Player please enter your selection:",
+         "Rock or Paper or Scissors").toLowerCase();
+      if (playerSelect == "rock" || playerSelect == "scissors" || 
+      playerSelect == "paper") {
+        return playerSelect;
+      } else {
+        alert ("Wrong selection. Please enter your selection again.")
+        userSelect ();
+      }
+      }
     
     // Define the rules that govern how the game is won, lost or drawn. 
     function playRound (cpuSelect, playerSelect) {
-    cpuSelect = getComputerChoice ();
+    cpuSelect = getComputerChoice().toLowerCase();
     playerSelect = userSelect ();
 
 
-      if ((cpuSelect == "Rock" && playerSelect == "Scissors") || 
-      (cpuSelect == "Scissors" && playerSelect == "Paper") || 
-      (cpuSelect == "Paper" && playerSelect == "Rock")) {
+      if ((cpuSelect == "rock" && playerSelect == "scissors") || 
+      (cpuSelect == "scissors" && playerSelect == "paper") || 
+      (cpuSelect == "paper" && playerSelect == "rock")) {
         alert (`You lose!! ${cpuSelect} beats ${playerSelect}`);
         return (cpuScore = cpuScore + 1);
-      } else if ((cpuSelect == "Paper" && playerSelect == "Scissors") ||
-      (cpuSelect == "Rock" && playerSelect == "Paper") ||
-      (cpuSelect == "Scissors" && playerSelect == "Rock") ) {
+      } else if ((cpuSelect == "paper" && playerSelect == "scissors") ||
+      (cpuSelect == "rock" && playerSelect == "paper") ||
+      (cpuSelect == "scissors" && playerSelect == "rock") ) {
         alert (`You win!! ${playerSelect} beats ${cpuSelect}`);
         return (playerScore = playerScore + 1);
       } else {
