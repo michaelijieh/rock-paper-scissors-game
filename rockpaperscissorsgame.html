@@ -14,15 +14,16 @@
   The selections are rated against the set rules.
   And the winner is selected. 
   The results are to be recoreded on a leadership board for five times.
-  An overall winner is selected afterall the fifth round of the game. -->
+  An overall winner is selected after the five rounds of the game or 3 wins; which ever comes first. -->
   
-  <h1>The Game:<h2>Rock-paper-scissors</h2></h1>
+  <h1>The Game:<h2>Rock-Paper-Scissors</h2></h1>
   <p>Play your favorite game, against the computer.</p>
   <p>Build on your individual wins, fill up your records and be the ultimate winner after five games.</p>
   
   <script>
     let cpuSelect;
     let playerSelect;
+    
     let playerScore;
     let cpuScore;
 
@@ -41,23 +42,24 @@
 
      // Get a selection from the player
      //  Ensure only the correct responses are permitted
-     function userSelect () { 
-      playerSelect = prompt("Player please enter your selection:",
-         "Rock or Paper or Scissors").toLowerCase();
-      if (playerSelect == "rock" || playerSelect == "scissors" || 
-      playerSelect == "paper") {
+     function userSelect() { 
+      let playerSelect = prompt("Player please enter your selection:", "Rock or Paper or Scissors");
+      if ((playerSelect.toLowerCase() == "rock") ||
+          (playerSelect.toLowerCase() == "scissors") ||
+          (playerSelect.toLowerCase() == "paper")) {
         return playerSelect;
       } else {
-        alert ("Wrong selection. Please enter your selection again.")
-        userSelect ();
+        alert ("Wrong selection. Please enter your selection again.");
+        return userSelect();
       }
-      }
-    
-    // Define the rules that govern how the game is won, lost or drawn. 
-    function playRound (cpuSelect, playerSelect) {
-    cpuSelect = getComputerChoice().toLowerCase();
-    playerSelect = userSelect ();
+      }     
 
+    
+    // // Define the rules that govern how a round is won, lost or drawn. 
+    function playRound (cpuSelect, playerSelect) {
+    playerSelect = userSelect();
+    cpuSelect = getComputerChoice().toLowerCase();
+    
 
       if ((cpuSelect == "rock" && playerSelect == "scissors") || 
       (cpuSelect == "scissors" && playerSelect == "paper") || 
@@ -70,13 +72,12 @@
         alert (`You win!! ${playerSelect} beats ${cpuSelect}`);
         return (playerScore = playerScore + 1);
       } else {
-        alert (`Nah. Try again ${cpuSelect} is same as ${playerSelect}`);
-        return playRound(cpuSelect, playerSelect);
+        alert (`It's a tie. Try again ${cpuSelect} is same as ${playerSelect}`);
+        return playRound (cpuSelect, playerSelect);
       }
       
     }
 
-    // Play a game of max five rounds. Player with 3 wins, wins. 
     // Record and display scores after each round.
     // Define the game rules after 5 rounds or after 3 wins.
     function game () {
@@ -86,12 +87,13 @@
         playRound(cpuSelect, playerSelect);
         console.log("cpu Score:" + cpuScore);
         console.log("player Score:" + playerScore);
-        if (cpuScore == 3 ) {
+        if (cpuScore === 3 ) {
           console.log(`You lost ${playerScore} - ${cpuScore} against the Computer! Better luck next time`);
           break;
-        } else if (playerScore == 3) {
+        } else if (playerScore === 3) {
           console.log(`You won ${playerScore} - ${cpuScore} against the Computer.`)
           break;
+        } else {
         }
       }
     }
