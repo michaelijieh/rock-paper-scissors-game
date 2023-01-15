@@ -22,28 +22,28 @@
   
   <script>
     let cpuSelect;
-    let playerSelect;
-    
+    let playerSelect; 
     let playerScore;
     let cpuScore;
 
     // Generate a random choice for the computer
     function getComputerChoice () {
       let cpuSelect = Math.ceil(Math.random() * 3);
-    
-    if (cpuSelect === 3) {
-      return cpuSelect = "Rock";
-    } else if (cpuSelect === 2) {
-      return cpuSelect = "Paper";
-    } else {
-      return cpuSelect = "Scissors";
-    }    
+      
+      if (cpuSelect === 3) {
+        return cpuSelect = "Rock";
+      } else if (cpuSelect === 2) {
+        return cpuSelect = "Paper";
+      } else {
+        return cpuSelect = "Scissors";
+      }    
     }
 
      // Get a selection from the player
      //  Ensure only the correct responses are permitted
-     function userSelect() { 
+    function userSelect() { 
       let playerSelect = prompt("Player please enter your selection:", "Rock or Paper or Scissors");
+      
       if ((playerSelect.toLowerCase() == "rock") ||
           (playerSelect.toLowerCase() == "scissors") ||
           (playerSelect.toLowerCase() == "paper")) {
@@ -52,23 +52,22 @@
         alert ("Wrong selection. Please enter your selection again.");
         return userSelect();
       }
-      }     
+    }     
 
     
     // // Define the rules that govern how a round is won, lost or drawn. 
     function playRound (cpuSelect, playerSelect) {
-    playerSelect = userSelect();
-    cpuSelect = getComputerChoice().toLowerCase();
-    
-
+      playerSelect = userSelect();
+      cpuSelect = getComputerChoice().toLowerCase();
+      
       if ((cpuSelect == "rock" && playerSelect == "scissors") || 
-      (cpuSelect == "scissors" && playerSelect == "paper") || 
-      (cpuSelect == "paper" && playerSelect == "rock")) {
+        (cpuSelect == "scissors" && playerSelect == "paper") || 
+        (cpuSelect == "paper" && playerSelect == "rock")) {
         alert (`You lose!! ${cpuSelect} beats ${playerSelect}`);
         return (cpuScore = cpuScore + 1);
       } else if ((cpuSelect == "paper" && playerSelect == "scissors") ||
-      (cpuSelect == "rock" && playerSelect == "paper") ||
-      (cpuSelect == "scissors" && playerSelect == "rock") ) {
+        (cpuSelect == "rock" && playerSelect == "paper") ||
+        (cpuSelect == "scissors" && playerSelect == "rock") ) {
         alert (`You win!! ${playerSelect} beats ${cpuSelect}`);
         return (playerScore = playerScore + 1);
       } else {
