@@ -1,0 +1,21 @@
+#startGame, #restartGame {
+    height: 50px;
+    width: 250px;
+    color: gray;
+    background-color: black;
+    border-radius: 32px;
+    border-style: none;
+}
+
+.pickButtons{
+    border-style: none;
+    height: 32px;
+    width: 96px;
+    border-radius: 8px;
+    color: black;
+    font-weight: bolder;
+}
+
+strong {
+    color: gray
+}

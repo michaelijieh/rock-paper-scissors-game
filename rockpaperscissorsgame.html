@@ -4,101 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Rock-paper-scissors</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="js-file.js" defer></script>
+    <style>
+      body {
+        margin: auto;
+        width: 500px;
+      }
+    </style>
+
   </head>
-<body>
-    
-  <!-- This is the game called rock, paper and scissors.
-  The rules are to be made against which rock, paper, scissors selection is madee.
-  It will be played against the computer. 
-  The computer would make a random selection, then the player his selection. 
-  The selections are rated against the set rules.
-  And the winner is selected. 
-  The results are to be recoreded on a leadership board for five times.
-  An overall winner is selected after the five rounds of the game or 3 wins; which ever comes first. -->
+
   
-  <h1>The Game:<h2>Rock-Paper-Scissors</h2></h1>
-  <p>Play your favorite game, against the computer.</p>
-  <p>Build on your individual wins, fill up your records and be the ultimate winner after five games.</p>
+  <body>
+
+      <h2 style="color: gray" >Welcome to</h2>
+      <h1>Rock-Paper-Scissors Game</h1>
+      
+
+      <div id="buttons" >
+          <h3 id="selectionText">Make your selection</h3>
+          <input class="pickButtons" type="button" value="rock">
+          <input class="pickButtons" type="button" value="paper">
+          <input class="pickButtons" type="button" value="scissors">
+          <h4 id="results"></h4>
+          <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
+          <h6 id="demo"></h6>
+
+      </div>
+      <p id="shows"></p>
+      <button id="startGame" >Start Game</button>
+      <button id="restartGame">Restart Game</button>
+
+
+  </body>
   
-  <script>
-    let cpuSelect;
-    let playerSelect; 
-    let playerScore;
-    let cpuScore;
-
-    // Generate a random choice for the computer
-    function getComputerChoice () {
-      let cpuSelect = Math.ceil(Math.random() * 3);
-      
-      if (cpuSelect === 3) {
-        return cpuSelect = "Rock";
-      } else if (cpuSelect === 2) {
-        return cpuSelect = "Paper";
-      } else {
-        return cpuSelect = "Scissors";
-      }    
-    }
-
-     // Get a selection from the player
-     //  Ensure only the correct responses are permitted
-    function userSelect() { 
-      let playerSelect = prompt("Player please enter your selection:", "Rock or Paper or Scissors");
-      
-      if ((playerSelect.toLowerCase() == "rock") ||
-          (playerSelect.toLowerCase() == "scissors") ||
-          (playerSelect.toLowerCase() == "paper")) {
-        return playerSelect;
-      } else {
-        alert ("Wrong selection. Please enter your selection again.");
-        return userSelect();
-      }
-    }     
-
-    
-    // // Define the rules that govern how a round is won, lost or drawn. 
-    function playRound (cpuSelect, playerSelect) {
-      playerSelect = userSelect();
-      cpuSelect = getComputerChoice().toLowerCase();
-      
-      if ((cpuSelect == "rock" && playerSelect == "scissors") || 
-        (cpuSelect == "scissors" && playerSelect == "paper") || 
-        (cpuSelect == "paper" && playerSelect == "rock")) {
-        alert (`You lose!! ${cpuSelect} beats ${playerSelect}`);
-        return (cpuScore = cpuScore + 1);
-      } else if ((cpuSelect == "paper" && playerSelect == "scissors") ||
-        (cpuSelect == "rock" && playerSelect == "paper") ||
-        (cpuSelect == "scissors" && playerSelect == "rock") ) {
-        alert (`You win!! ${playerSelect} beats ${cpuSelect}`);
-        return (playerScore = playerScore + 1);
-      } else {
-        alert (`It's a tie. Try again ${cpuSelect} is same as ${playerSelect}`);
-        return playRound (cpuSelect, playerSelect);
-      }
-      
-    }
-
-    // Record and display scores after each round.
-    // Define the game rules after 5 rounds or after 3 wins.
-    function game () {
-      cpuScore = 0;
-      playerScore = 0;
-      for (let i = 0; i < 5; i++) {
-        playRound(cpuSelect, playerSelect);
-        console.log("cpu Score:" + cpuScore);
-        console.log("player Score:" + playerScore);
-        if (cpuScore === 3 ) {
-          console.log(`You lost ${playerScore} - ${cpuScore} against the Computer! Better luck next time`);
-          break;
-        } else if (playerScore === 3) {
-          console.log(`You won ${playerScore} - ${cpuScore} against the Computer.`)
-          break;
-        } else {
-        }
-      }
-    }
-
-    game();
-
-   </script>
-</body>
 </html>
