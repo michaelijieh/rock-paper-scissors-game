@@ -70,8 +70,9 @@ body {
     border-style: none;
     height: 96px;
     width: 96px;
-    border-radius: 8px;
-    color: black;
+    border-radius: 24px;
+    color: whitesmoke;
+    background-color: grey;
     font-family:'Courier New', Courier, monospace;
     font-weight:bolder;
 
@@ -83,7 +84,7 @@ body {
 
 
 
-#cpuHeader {
+#cpuHeader, #playerHeader {
     color: grey;
 }
 

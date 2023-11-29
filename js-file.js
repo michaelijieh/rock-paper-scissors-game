@@ -11,7 +11,7 @@ start.addEventListener('click', () => {
     document.getElementById('endGame').style.display = "block";
     document.getElementById('headerBar').style.display = "none";
 
-    let info = "waiting . . ."
+    let info = "waiting..."
     results(info)
 
 })
@@ -88,6 +88,8 @@ function endGame () {
     document.getElementById('scoreBoard').style.display = "none";
     document.getElementById('cpuHeader').style.display = "none";
     document.getElementById('cpuShowSelection').style.display = "none";
+    document.getElementById('playerHeader').style.display = "none";
+    document.getElementById('playerShowSelection').style.display = "none";
     document.getElementById('line1').style.display = "none";
     document.getElementById('line2').style.display = "none";
 
@@ -106,7 +108,12 @@ function playRound (message) {
     let cpuSelect = getComputerChoice();
     document.getElementById('cpuHeader').style.display = "block";
     document.getElementById('cpuShowSelection').style.display = "block";
-    document.getElementById('cpuShowSelection').innerText = cpuSelect
+    document.getElementById('cpuShowSelection').innerText = cpuSelect;
+
+    document.getElementById('playerHeader').style.display = "block";
+    document.getElementById('playerShowSelection').style.display = "block";
+    document.getElementById('playerShowSelection').innerText = playerSelect;
+
 
 
     if ((cpuSelect == "rock" && playerSelect == "scissors") || 
