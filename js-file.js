@@ -1,52 +1,71 @@
 document.getElementById('buttons').style.display = "none";
 document.getElementById('restartGame').style.display = "none"
+document.getElementById('cpuDisplay').style.display = "none";
+
 
 const start = document.getElementById('startGame');
-start.addEventListener('click', function () {
+start.addEventListener('click', () => {
     document.getElementById('buttons').style.display = "block";
     document.getElementById('startGame').style.display = "none";
     document.getElementById('restartGame').style.display = "block";
+    document.getElementById('welcomeStatement').style.display = "none";
 
+    
 })
 
 const restart = document.getElementById('restartGame');
-restart.addEventListener('click', function () {
+restart.addEventListener('click', () => {
     location.reload()
 }) 
 
 
 const buttons = document.querySelectorAll('input');
-buttons.forEach(button =>{
-    button.addEventListener('click', function(){
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
         playRound(button.value)
     })
 })
 
 
+function outputCpuChoice (cpuSelect) {
+    const cpuDisplay = document.getElementById('cpuDisplay');
+    cpuDisplay.style.display = "solid"
+    cpuDisplay.innerText = cpuSelect;
+}
+
 function getComputerChoice () {
-    let cpuSelect = Math.ceil(Math.random() * 3);
-    
-    if (cpuSelect === 3) {
-      return cpuSelect = "rock";
+    let number = Math.ceil(Math.random() * 3);
+    console.log(number);
+    let cpuSelect;
+
+    if (number === 3) {
+        cpuSelect = "rock";
+        outputCpuChoice(cpuSelect);
+        return cpuSelect;
     } else if (cpuSelect === 2) {
-      return cpuSelect = "paper";
+        cpuSelect = "paper";
+        outputCpuChoice(cpuSelect);
+        return cpuSelect;    
     } else {
-      return cpuSelect = "scissors";
+        cpuSelect = "scissors";
+        outputCpuChoice(cpuSelect);
+        return cpuSelect;
     }    
   }
 
+  getComputerChoice()
+
+
+
 function cpuScoreBoard (cpuScore) {
     const cpuAggScore = document.getElementById('cpuScoreBoard');
-
     cpuAggScore.innerText = cpuScore;
 }
 
+
 function playerScoreBoard (playerScore) {
     const playerAggScore = document.getElementById('playerScoreBoard');
-
     playerAggScore.innerText = playerScore;
-
-
 }
 
 
@@ -66,9 +85,6 @@ function results (info, cpuSelect, playerSelect) {
         results.style.color = 'grey'
         results.textContent = info;
     }
-
-
-    
 }
 
 function endGame () {
@@ -101,33 +117,34 @@ function playRound (message) {
         results(info, cpuSelect, playerSelect);
         cpuScore++;
         cpuScoreBoard(cpuScore);
-
-        if ((Math.abs(cpuScore - playerScore) === 3 && cpuScore > playerScore) || (cpuScore + playerScore === 5)) {
-            endGame()
-            let info = (`You lost ${playerScore} - ${cpuScore} against the Computer! Better luck next time. \nTo play again, press Restart Game`)
-            results(info, cpuSelect, playerSelect)
-        }
-        
-        
-      } else if ((cpuSelect == "paper" && playerSelect == "scissors") ||
+    
+    } else if ((cpuSelect == "paper" && playerSelect == "scissors") ||
         (cpuSelect == "rock" && playerSelect == "paper") ||
         (cpuSelect == "scissors" && playerSelect == "rock") ) {
         let info = (`You win!! ${playerSelect} beats ${cpuSelect}`);
         results(info, cpuSelect, playerSelect);
         playerScore++;
         playerScoreBoard(playerScore);
-        if ((Math.abs(cpuScore - playerScore) === 3 && playerScore > cpuScore) || (cpuScore + playerScore === 5)) {
-            endGame()
-            let info = (`You won ${playerScore} - ${cpuScore} against the Computer. \nTo play again, press Restart Game`)
-            results(info, cpuSelect, playerSelect)
-            
-        }
-
-
-      } else {
+        
+    } else {
         let info = (`It's a tie. Try again ${cpuSelect} is same as ${playerSelect}`);
         return results(info);
       }
+    
+    if ( (cpuScore + playerScore === 5 && cpuScore > 3) || cpuScore >= 3) {
+        endGame()
+        let info = (`You lost ${playerScore} - ${cpuScore} against the Computer! Better luck next time. \nTo play again, press Restart Game`)
+        results(info, cpuSelect, playerSelect)
+
+
+    } else if ((cpuScore + playerScore === 5 && playerScore > 3) || playerScore >= 3) {
+        endGame()
+        let info = (`You won ${playerScore} - ${cpuScore} against the Computer. \nTo play again, press Restart Game`)
+        results(info, cpuSelect, playerSelect)
+        
+    }
+
+    
 }
 
 

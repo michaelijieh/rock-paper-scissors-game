@@ -6,35 +6,35 @@
     <title>Rock-paper-scissors</title>
     <link rel="stylesheet" href="styles.css"/>
     <script src="js-file.js" defer></script>
-    <style>
-      body {
-        margin: auto;
-        width: 500px;
-      }
-    </style>
-
+    
   </head>
 
   
   <body>
 
-      <h2 style="color: gray" >Welcome to</h2>
+      <h2 id="welcomeStatement" style="color: gray" >Welcome to</h2>
       <h1>Rock-Paper-Scissors Game</h1>
       
 
-      <div id="buttons" >
-          <h3 id="selectionText">Make your selection</h3>
-          <input class="pickButtons" type="button" value="rock">
-          <input class="pickButtons" type="button" value="paper">
-          <input class="pickButtons" type="button" value="scissors">
-          <h4 id="results"></h4>
-          <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
-          <h6 id="demo"></h6>
+      <div id="buttons">
+        <h3 id="selectionText">Make your selection</h3>
+        <input class="pickButtons" type="button" value="rock">
+        <input class="pickButtons" type="button" value="paper">
+        <input class="pickButtons" type="button" value="scissors">
+        <h4 id="results"></h4>
+        <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
+        <h6 id="demo"></h6>
 
       </div>
+      <div id="cpuDisplay">
+        <h3>Computer chose</h3>
+        <div></div>
+      </div>
       <p id="shows"></p>
-      <button id="startGame" >Start Game</button>
-      <button id="restartGame">Restart Game</button>
+      <footer>
+        <button id="startGame" >Start Game</button>
+        <button id="restartGame">Restart Game</button>
+      </footer>
 
 
   </body>
