@@ -13,29 +13,32 @@
   <body>
 
       <div id="headerBar">
-        <img id="logo" src="images/rock-paper-scissors.png" alt="3 hands describing rock, papers and scissors" des="https://www.flaticon.com/free-icons/rock-paper-scissors rock paper scissors icons Rock paper scissors icons created by Freepik - Flaticon">
-        <h1> Rock Paper Scissors</h1>
+        <img class="logo" src="images/rock-paper-scissors.png" alt="3 hands describing rock, papers and scissors" des="https://www.flaticon.com/free-icons/rock-paper-scissors rock paper scissors icons Rock paper scissors icons created by Freepik - Flaticon">
+        <h1 class="gameName"> Rock Paper Scissors</h1>
       </div>
       
       
       <div id="buttons" class="center">
         <h1 id="headerInGame"> Rock Paper Scissors</h1>
+        <hr id="line1">
+        <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
+        <hr id="line2">
+
 
         <h3 id="selectionText">Make your selection</h3>
         <input class="pickButtons" type="button" value="Rock">
         <input class="pickButtons" type="button" value="Paper">
         <input class="pickButtons" type="button" value="Scissors">
-        
         <h5 id="results"></h5>
-        <hr id="line1">
-        <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
-        <hr id="line2">
 
         <div id="cpuDisplay">
           <h4 id="cpuHeader">Computer selected:</h4>
           <h3 id="cpuShowSelection"></h3>
         </div>
 
+        
+        
+        
       </div>
 
       

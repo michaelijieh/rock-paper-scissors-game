@@ -138,7 +138,7 @@ function playRound (message) {
 
     } else if ((cpuScore + playerScore === 5 && playerScore > 3) || playerScore >= 3) {
         endGame()
-        let info = (`You won! ${playerScore} - ${cpuScore} against the Computer.\nTo play again, press Restart Game`)
+        let info = (`You won! ${playerScore} - ${cpuScore} against the Computer`)
         results(info, cpuSelect, playerSelect)
         
     }
