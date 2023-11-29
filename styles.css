@@ -9,8 +9,8 @@ body {
     font-family:'Courier New', Courier, monospace;
 
 }
-#welcomeStatement, #headerBar {
 
+#welcomeStatement, #headerBar {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,6 +19,7 @@ body {
     margin: -100px 0 0 -100px;
     align-self: center
 }
+
 .buttons {
     min-height: auto;
     display: flex;
@@ -32,7 +33,15 @@ body {
     width: 320px;
 }
 
-#startGame, #restartGame {
+#cpuScoreBoard, #playerScoreBoard {
+    color: black;
+}
+
+#scoreBoard {
+    color: grey;
+}
+
+#startGame, #endGame {
     height: 50px;
     width: 250px;
     color: gray;
@@ -41,9 +50,7 @@ body {
     border-style: none;
     font-family:'Courier New', Courier, monospace;
     font-weight:lighter;
-
-
-    
+  
 }
 
 .pickButtons {
@@ -54,7 +61,6 @@ body {
     color: black;
     font-family:'Courier New', Courier, monospace;
     font-weight:bolder;
-
 
 }
 
@@ -87,7 +93,9 @@ body {
     gap: 16px;
 }
 
-
+#headerInGame {
+    color: grey;
+}
 strong {
     color: gray
 }
@@ -99,11 +107,9 @@ footer {
 
 }
 
-
 .center {
    position: absolute;
    top: 40%;
    transform: translate(0, -50%);
    text-align: center;
 }
-

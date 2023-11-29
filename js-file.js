@@ -1,6 +1,6 @@
 document.getElementById('buttons').style.display = "none";
-document.getElementById('restartGame').style.display = "none"
-document.getElementById('cpuHeader').style.display = "none";
+document.getElementById('endGame').style.display = "none"
+// document.getElementById('cpuHeader').style.display = "none";
 document.getElementById('cpuShowSelection').style.display = "none";
 
 
@@ -8,12 +8,15 @@ const start = document.getElementById('startGame');
 start.addEventListener('click', () => {
     document.getElementById('buttons').style.display = "block";
     document.getElementById('startGame').style.display = "none";
-    document.getElementById('restartGame').style.display = "block";
+    document.getElementById('endGame').style.display = "block";
     document.getElementById('headerBar').style.display = "none";
+
+    let info = "waiting . . ."
+    results(info)
 
 })
 
-const restart = document.getElementById('restartGame');
+const restart = document.getElementById('endGame');
 restart.addEventListener('click', () => {
     location.reload()
 }) 
@@ -22,7 +25,7 @@ restart.addEventListener('click', () => {
 const buttons = document.querySelectorAll('input');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        playRound(button.value)
+        playRound(button.value.toLowerCase())
     })
 })
 
@@ -70,7 +73,7 @@ function results (info, cpuSelect, playerSelect) {
         results.style.color = 'red';
         results.textContent = info;
     } else {
-        results.style.color = 'grey'
+        results.style.color = 'black'
         results.textContent = info;
     }
 }
