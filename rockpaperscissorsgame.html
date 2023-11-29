@@ -12,25 +12,36 @@
   
   <body>
 
-      <h2 id="welcomeStatement" style="color: gray" >Welcome to</h2>
-      <h1>Rock-Paper-Scissors Game</h1>
+      <div id="headerBar">
+        <img id="logo" src="images/rock-paper-scissors.png" alt="3 hands describing rock, papers and scissors" des="https://www.flaticon.com/free-icons/rock-paper-scissors rock paper scissors icons Rock paper scissors icons created by Freepik - Flaticon">
+        <h1> Rock Paper Scissors</h1>
+      </div>
+      
       
 
-      <div id="buttons">
+      <div id="buttons" class="center">
+        <h1 id="headerInGame"> Rock Paper Scissors</h1>
+
         <h3 id="selectionText">Make your selection</h3>
         <input class="pickButtons" type="button" value="rock">
         <input class="pickButtons" type="button" value="paper">
         <input class="pickButtons" type="button" value="scissors">
-        <h4 id="results"></h4>
+        
+        <h5 id="results"></h5>
+        <hr id="line1">
         <h3 id="scoreBoard">Player <strong id="playerScoreBoard">0</strong> : <strong id="cpuScoreBoard">0</strong> Computer</h3>
-        <h6 id="demo"></h6>
+        <hr id="line2">
+
+        <div id="cpuDisplay">
+          <h4 id="cpuHeader">Computer selected:</h4>
+          <h3 id="cpuShowSelection"></h3>
+        </div>
 
       </div>
-      <div id="cpuDisplay">
-        <h3>Computer chose</h3>
-        <div></div>
-      </div>
-      <p id="shows"></p>
+
+
+
+      
       <footer>
         <button id="startGame" >Start Game</button>
         <button id="restartGame">Restart Game</button>

@@ -1,6 +1,7 @@
 document.getElementById('buttons').style.display = "none";
 document.getElementById('restartGame').style.display = "none"
-document.getElementById('cpuDisplay').style.display = "none";
+document.getElementById('cpuHeader').style.display = "none";
+document.getElementById('cpuShowSelection').style.display = "none";
 
 
 const start = document.getElementById('startGame');
@@ -8,9 +9,8 @@ start.addEventListener('click', () => {
     document.getElementById('buttons').style.display = "block";
     document.getElementById('startGame').style.display = "none";
     document.getElementById('restartGame').style.display = "block";
-    document.getElementById('welcomeStatement').style.display = "none";
+    document.getElementById('headerBar').style.display = "none";
 
-    
 })
 
 const restart = document.getElementById('restartGame');
@@ -27,34 +27,22 @@ buttons.forEach(button => {
 })
 
 
-function outputCpuChoice (cpuSelect) {
-    const cpuDisplay = document.getElementById('cpuDisplay');
-    cpuDisplay.style.display = "solid"
-    cpuDisplay.innerText = cpuSelect;
-}
 
 function getComputerChoice () {
     let number = Math.ceil(Math.random() * 3);
-    console.log(number);
     let cpuSelect;
 
     if (number === 3) {
         cpuSelect = "rock";
-        outputCpuChoice(cpuSelect);
         return cpuSelect;
-    } else if (cpuSelect === 2) {
+    } else if (number === 2) {
         cpuSelect = "paper";
-        outputCpuChoice(cpuSelect);
         return cpuSelect;    
-    } else {
+    } else if (number === 1) {
         cpuSelect = "scissors";
-        outputCpuChoice(cpuSelect);
         return cpuSelect;
     }    
   }
-
-  getComputerChoice()
-
 
 
 function cpuScoreBoard (cpuScore) {
@@ -95,6 +83,11 @@ function endGame () {
     })
     document.getElementById('selectionText').style.display = "none";
     document.getElementById('scoreBoard').style.display = "none";
+    document.getElementById('cpuHeader').style.display = "none";
+    document.getElementById('cpuShowSelection').style.display = "none";
+    document.getElementById('line1').style.display = "none";
+    document.getElementById('line2').style.display = "none";
+
     
 }
 
@@ -105,9 +98,12 @@ let cpuScore = 0;
 
 
 function playRound (message) {
+    
     let playerSelect = message;
     let cpuSelect = getComputerChoice();
-    console.log (playerSelect, cpuSelect);
+    document.getElementById('cpuHeader').style.display = "block";
+    document.getElementById('cpuShowSelection').style.display = "block";
+    document.getElementById('cpuShowSelection').innerText = cpuSelect
 
 
     if ((cpuSelect == "rock" && playerSelect == "scissors") || 
@@ -127,19 +123,19 @@ function playRound (message) {
         playerScoreBoard(playerScore);
         
     } else {
-        let info = (`It's a tie. Try again ${cpuSelect} is same as ${playerSelect}`);
+        let info = (`It's a tie! Try again. ${cpuSelect} is same as ${playerSelect}`);
         return results(info);
       }
     
     if ( (cpuScore + playerScore === 5 && cpuScore > 3) || cpuScore >= 3) {
         endGame()
-        let info = (`You lost ${playerScore} - ${cpuScore} against the Computer! Better luck next time. \nTo play again, press Restart Game`)
+        let info = (`You lost! ${playerScore} - ${cpuScore} against the Computer! Better luck next time. \nTo play again, press Restart Game`)
         results(info, cpuSelect, playerSelect)
 
 
     } else if ((cpuScore + playerScore === 5 && playerScore > 3) || playerScore >= 3) {
         endGame()
-        let info = (`You won ${playerScore} - ${cpuScore} against the Computer. \nTo play again, press Restart Game`)
+        let info = (`You won! ${playerScore} - ${cpuScore} against the Computer. \nTo play again, press Restart Game`)
         results(info, cpuSelect, playerSelect)
         
     }
