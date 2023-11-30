@@ -66,10 +66,10 @@ function results (info, cpuSelect, playerSelect) {
 
 
     if (info === winInfo) {
-        results.style.color = "green";
+        results.style.color = "#3f6f21";
         results.textContent = info;
     } else if (info === loseInfo) {
-        results.style.color = 'red';
+        results.style.color = "#6e2f1a";
         results.textContent = info;
     } else {
         results.style.color = 'black'
