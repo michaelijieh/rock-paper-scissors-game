@@ -42,6 +42,7 @@ body {
     align-self: center;
 }
 
+
 #line1, #line2 {
     width: 320px;
 }
@@ -57,7 +58,7 @@ body {
 #startGame, #endGame {
     height: 50px;
     width: 250px;
-    color: gray;
+    color: whitesmoke;
     background-color: black;
     border-radius: 32px;
     border-style: none;
@@ -72,10 +73,15 @@ body {
     width: 96px;
     border-radius: 24px;
     color: whitesmoke;
-    background-color: grey;
+    background-color: #343434;
     font-family:'Courier New', Courier, monospace;
     font-weight:bolder;
 
+}
+
+.pickButtons:hover {
+    background-color: grey;
+    color: black;
 }
 
 /* #cpuShowSelection {
