@@ -1,7 +1,6 @@
 document.getElementById('buttons').style.display = "none";
 document.getElementById('endGame').style.display = "none"
-// document.getElementById('cpuHeader').style.display = "none";
-document.getElementById('cpuShowSelection').style.display = "none";
+
 
 
 const start = document.getElementById('startGame');
