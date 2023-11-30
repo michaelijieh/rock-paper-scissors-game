@@ -76,12 +76,15 @@ body {
     background-color: #343434;
     font-family:'Courier New', Courier, monospace;
     font-weight:bolder;
+    margin: 32px;
 
 }
 
-.pickButtons:hover {
-    background-color: grey;
-    color: black;
+.pickButtons:hover, #startGame:hover, #endGame:hover {
+    background-color: #030001;
+    color: grey;
+    font-weight: bolder;
+
 }
 
 /* #cpuShowSelection {
@@ -129,4 +132,14 @@ footer {
    top: 40%;
    transform: translate(0, -50%);
    text-align: center;
+}
+
+#cpuShowSelection, #playerShowSelection {
+    height: auto;
+    width: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 16px;
+    background-color: whitesmoke;
+
 }

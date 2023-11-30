@@ -92,8 +92,7 @@ function endGame () {
     document.getElementById('playerShowSelection').style.display = "none";
     document.getElementById('line1').style.display = "none";
     document.getElementById('line2').style.display = "none";
-
-    
+ 
 }
 
 
@@ -133,7 +132,7 @@ function playRound (message) {
         playerScoreBoard(playerScore);
         
     } else {
-        let info = (`Try again! ${cpuSelect} is same as ${playerSelect}`);
+        let info = (`Try again! ${cpuSelect} ties ${playerSelect}`);
         return results(info);
       }
     
@@ -146,6 +145,7 @@ function playRound (message) {
     } else if ((cpuScore + playerScore === 5 && playerScore > 3) || playerScore >= 3) {
         endGame()
         let info = (`You won! ${playerScore} - ${cpuScore} against the Computer.`)
+        
         results(info, cpuSelect, playerSelect)
         
     }
